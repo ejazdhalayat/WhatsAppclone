@@ -11,6 +11,8 @@ function ContactCard(props) { //we can give any parameter. Developers call props
 
                 <div>
                     <p className='text-white group-hover:font-bold group-hover:text-black text-base'>{props.showName}</p>
+
+                    
                     <p className='text-gray-400 group-hover:text-black text-sm'>{props.showMsg}</p>
 
                 </div>

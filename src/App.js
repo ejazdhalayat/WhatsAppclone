@@ -1,5 +1,6 @@
 
 import './App.css';
+import Classscreen from './Screens/Classscreen';
 import Homescreen from './Screens/Homescreen';
 
 
@@ -8,6 +9,9 @@ function App() {
     <div className="h-screen w-screen " >
 
       <Homescreen />
+
+      {/* <Classscreen /> */}
+
      
     </div>
   );

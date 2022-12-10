@@ -8,15 +8,24 @@ import SearchIcon from '@mui/icons-material/Search';
 import ContactCard from './ContactCard';
 
 
-function ContactList() {
+function ContactList(props) {
 
   const ContactArray = [ { name : "Arfat", img : "https://pps.whatsapp.net/v/t61.24694-24/312280018_169906322326594_541453286877171405_n.jpg?ccb=11-4&oh=01_AdQ1yNbSZqdVKcnMgMRJIHB1Ir-EPaz0J7QmOLxRvme0eg&oe=639896B0", time : '9:00 pm', msg : 'Join now' } , 
   {name : "Farha", img : "https://pps.whatsapp.net/v/t61.24694-24/307103608_5188485381263683_671062888608676686_n.jpg?ccb=11-4&oh=01_AdSCnYpPLML_34ngsDh6NYvbYm4ldiRpGuL5UlaKIYAPKg&oe=6399DBAE" , time : '10:00 am', msg : 'Which link?'},
   {name : "Sadia", img : "https://pps.whatsapp.net/v/t61.24694-24/310110404_955288089195524_7301502132524348877_n.jpg?ccb=11-4&oh=01_AdTyxIvaH97NjnAGsLdVc2fTxk0JlvFGoXXvBkDoe1QFyg&oe=6399DCF4" , time : '10:00 am', msg : 'Let me check'},
   {name : "Anmol", img : "https://pps.whatsapp.net/v/t61.24694-24/158723607_419193396439292_5955373819812020282_n.jpg?ccb=11-4&oh=01_AdRnapx84SjUYutq9XlBng7LBcSVHGHMux9ed8w_6-NR5Q&oe=6399C042" ,time : '10:00 am', msg : 'Hi Anmol, Ejaz here.'}, 
+  {name : "Nikhat", img : "https://pps.whatsapp.net/v/t61.24694-24/180331887_856279525298753_2313013107755184080_n.jpg?ccb=11-4&oh=01_AdTkURxNGD_9H9AtsUFZyoLDbVgHUlq22r3FPYMShM9woQ&oe=6399F4B6" ,time : '10:00 am', msg : 'Okay'},
+  { name : "Arfat", img : "https://pps.whatsapp.net/v/t61.24694-24/312280018_169906322326594_541453286877171405_n.jpg?ccb=11-4&oh=01_AdQ1yNbSZqdVKcnMgMRJIHB1Ir-EPaz0J7QmOLxRvme0eg&oe=639896B0", time : '9:00 pm', msg : 'Join now' } , 
+  {name : "Farha", img : "https://pps.whatsapp.net/v/t61.24694-24/307103608_5188485381263683_671062888608676686_n.jpg?ccb=11-4&oh=01_AdSCnYpPLML_34ngsDh6NYvbYm4ldiRpGuL5UlaKIYAPKg&oe=6399DBAE" , time : '10:00 am', msg : 'Which link?'},
+  {name : "Sadia", img : "https://pps.whatsapp.net/v/t61.24694-24/310110404_955288089195524_7301502132524348877_n.jpg?ccb=11-4&oh=01_AdTyxIvaH97NjnAGsLdVc2fTxk0JlvFGoXXvBkDoe1QFyg&oe=6399DCF4" , time : '10:00 am', msg : 'Let me check'},
+  {name : "Anmol", img : "https://pps.whatsapp.net/v/t61.24694-24/158723607_419193396439292_5955373819812020282_n.jpg?ccb=11-4&oh=01_AdRnapx84SjUYutq9XlBng7LBcSVHGHMux9ed8w_6-NR5Q&oe=6399C042" ,time : '10:00 am', msg : 'Hi Anmol, Ejaz here.'}, 
   {name : "Nikhat", img : "https://pps.whatsapp.net/v/t61.24694-24/180331887_856279525298753_2313013107755184080_n.jpg?ccb=11-4&oh=01_AdTkURxNGD_9H9AtsUFZyoLDbVgHUlq22r3FPYMShM9woQ&oe=6399F4B6" ,time : '10:00 am', msg : 'Okay'}]
 
+function XYZ(x){
 
+  props.setContact(x)
+
+}
 
 
 
@@ -50,11 +59,15 @@ function ContactList() {
           <KeyboardDoubleArrowDownIcon className='ml-3' fontSize='inherit' />
       </div>
 
-      <div className='mt-4 overflow-y-scroll max-h-[32rem] '>
+      <div className='mt-4 overflow-y-scroll max-h-[32rem] pb-6'>
 
         {
-          ContactArray.map((item,index) => <ContactCard key={index} showName={item.name} showImg={item.img} setTime={item.time} showMsg={item.msg} />)
+          ContactArray.map((item,index) => <button onClick={() => XYZ(item)} key={index} className='w-full'> <ContactCard  showName={item.name} showImg={item.img} setTime={item.time} showMsg={item.msg}  /></button>)
         }
+
+{/* {
+          ContactArray.map((item,index) => <ContactCard key={index} showName={item.name} showImg={item.img} setTime={item.time} showMsg={item.msg} />)
+        } */}
 
         
 

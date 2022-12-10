@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ChatScreen from '../Components/ChatScreen'
 import ContactList from '../Components/ContactList'
 
 
 function Homescreen() {
+  const [active, setActive] = useState(null)
+
+
   return (
     <div className=' max-w-[75rem] grid grid-cols-6 h-screen
     bg-indigo-400 mx-auto overflow-y-hidden'>
         {/* ContactList */}
-        <ContactList />
+        <ContactList setContact={setActive}/>
 
         {/* ChatScreen */}
-        <ChatScreen />
+        {active?<ChatScreen p1={active} /> : ""}
         </div>
     
     )
