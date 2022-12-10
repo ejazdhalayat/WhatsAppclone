@@ -1,7 +1,7 @@
 import React from 'react'
-import ChatHead from './ChatHead'
-import ChatInput from './ChatInput'
-import ChatMessage from './ChatMessage'
+import ChatHead from './SubComponent/ChatHead'
+import ChatInput from './SubComponent/ChatInput'
+import ChatMessage from './SubComponent/ChatMessage'
 
 function ChatScreen(props) {
   return (
