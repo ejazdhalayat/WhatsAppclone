@@ -4,6 +4,7 @@ import './App.css';
 import Login from './Components/SubComponent/Login';
 
 import Homescreen from './Screens/Homescreen';
+import Index from './Screens/Index';
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
       {/* <Homescreen /> */}
 
       {/* <Classscreen /> */}
+
+      <Index />
 
      
     </div>

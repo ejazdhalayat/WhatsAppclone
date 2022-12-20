@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import ChatScreen from '../Components/ChatScreen'
 import ContactList from '../Components/ContactList'
 
+import Index from './Index'
+
 
 function Homescreen() {
   const [active, setActive] = useState(null)
@@ -14,7 +16,8 @@ function Homescreen() {
         <ContactList setContact={setActive}/>
 
         {/* ChatScreen */}
-        {active?<ChatScreen p1={active} /> : ""}
+        {/* {active?<ChatScreen p1={active} /> : ""} */}
+        <Index />
         </div>
     
     )
