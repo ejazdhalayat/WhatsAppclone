@@ -5,13 +5,15 @@ import './App.css';
 import Login from './Components/SubComponent/Login';
 import Homescreen from './Screens/Homescreen';
 import app from './firebase';
+import { getFirestore } from "firebase/firestore";
 import { getAuth, signInWithPopup, signOut, GoogleAuthProvider, onAuthStateChanged } from "firebase/auth";
 import { async } from '@firebase/util';
 
 function App() {
   const[user, setUser] = useState(null)
-const auth = getAuth(app);
+  const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
+  const db = getFirestore(app);
 
 async function Signin() {
  await  signInWithPopup(auth, provider)
@@ -24,19 +26,19 @@ async function Signin() {
   });
 }
 async function Signout() {
-  await signOut(auth).then(()=>{}).catch(()=>{})
+  await signOut(auth).then((er)=>{console.log(er)}).catch((errr)=>{console.log(errr)})
 }
 
-// useEffect(()=>{
-//   onAuthStateChanged(auth, (u) => {
-//     if (u) {
-//       setUser(u)
-//     } else {
-//       setUser(null)
-//     }
-//   });
+useEffect(()=>{
+  onAuthStateChanged(auth, (u) => {
+    if (u) {
+      setUser(u)
+    } else {
+      setUser(null)
+    }
+  });
 
-// },[user])
+},[user])
 
 
 

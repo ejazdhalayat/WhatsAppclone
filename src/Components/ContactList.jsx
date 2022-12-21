@@ -9,19 +9,20 @@ import ContactCard from './ContactCard';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 
-function ContactList(props) {
+function ContactList({user,logout, ...props}) {
 
   const ContactArray = [ { name : "Arfat", img : 'https://pps.whatsapp.net/v/t61.24694-24/312280018_169906322326594_541453286877171405_n.jpg?ccb=11-4&oh=01_AdQSLKhssREK0pWVtJdyzrKvm6_dwO62VpAIrvwH2563Fw&oe=63A981F0', time : '9:00 pm', msg : 'Join now' } , 
   {name : "Farha", img : "https://pps.whatsapp.net/v/t61.24694-24/307103608_5188485381263683_671062888608676686_n.jpg?ccb=11-4&oh=01_AdSCnYpPLML_34ngsDh6NYvbYm4ldiRpGuL5UlaKIYAPKg&oe=6399DBAE" , time : '10:00 am', msg : 'Which link?'},
   {name : "Sadia", img : "https://pps.whatsapp.net/v/t61.24694-24/310110404_955288089195524_7301502132524348877_n.jpg?ccb=11-4&oh=01_AdTwR6weTkKqkK6JRVuVi48vSLYfZ0WWNh6uSlW4dvawhw&oe=63A9AEF4" , time : '10:00 am', msg : 'Let me check'},
   {name : "Anmol", img : "https://pps.whatsapp.net/v/t61.24694-24/158723607_419193396439292_5955373819812020282_n.jpg?ccb=11-4&oh=01_AdRnapx84SjUYutq9XlBng7LBcSVHGHMux9ed8w_6-NR5Q&oe=6399C042" ,time : '10:00 am', msg : 'Hi Anmol, Ejaz here.'}, 
   {name : "Nikhat", img : "https://pps.whatsapp.net/v/t61.24694-24/180331887_856279525298753_2313013107755184080_n.jpg?ccb=11-4&oh=01_AdTkURxNGD_9H9AtsUFZyoLDbVgHUlq22r3FPYMShM9woQ&oe=6399F4B6" ,time : '10:00 am', msg : 'Okay'},
-  { name : "Arbaz", img : "https://pps.whatsapp.net/v/t61.24694-24/309112459_2031902660342037_1164897489008608396_n.jpg?ccb=11-4&oh=01_AdTzXhD2nyGMoIIT9onzLPttocN73hJjnvZuKR9xvvgsRA&oe=63A2F0EA", time : '9:00 pm', msg : 'Done.' } , 
+  { name : "Preeti", img : "", time : '9:00 pm', msg : 'Done.' } , 
   {name : "Farha", img : "https://pps.whatsapp.net/v/t61.24694-24/307103608_5188485381263683_671062888608676686_n.jpg?ccb=11-4&oh=01_AdSCnYpPLML_34ngsDh6NYvbYm4ldiRpGuL5UlaKIYAPKg&oe=6399DBAE" , time : '10:00 am', msg : 'Which link?'},
   {name : "Sadia", img : "https://pps.whatsapp.net/v/t61.24694-24/310110404_955288089195524_7301502132524348877_n.jpg?ccb=11-4&oh=01_AdTyxIvaH97NjnAGsLdVc2fTxk0JlvFGoXXvBkDoe1QFyg&oe=6399DCF4" , time : '10:00 am', msg : 'Let me check'},
   {name : "Anmol", img : "https://pps.whatsapp.net/v/t61.24694-24/158723607_419193396439292_5955373819812020282_n.jpg?ccb=11-4&oh=01_AdRnapx84SjUYutq9XlBng7LBcSVHGHMux9ed8w_6-NR5Q&oe=6399C042" ,time : '10:00 am', msg : 'Hi Anmol, Ejaz here.'}, 
   {name : "Nikhat", img : "https://pps.whatsapp.net/v/t61.24694-24/180331887_856279525298753_2313013107755184080_n.jpg?ccb=11-4&oh=01_AdTkURxNGD_9H9AtsUFZyoLDbVgHUlq22r3FPYMShM9woQ&oe=6399F4B6" ,time : '10:00 am', msg : 'Okay'}]
 
+  console.log(logout)
 function XYZ(x){
 
   props.setContact(x)
@@ -43,7 +44,7 @@ function XYZ(x){
         <GroupsIcon fontSize='inherit' />
         <ReplayIcon fontSize='inherit' />
         <MessageIcon fontSize='inherit' />
-        <button onClick={()=> props.logout()}><ExitToAppIcon fontSize='inherit'/></button> 
+        <button onClick={()=> logout()}><ExitToAppIcon fontSize='inherit'/></button> 
        <MoreVertIcon fontSize='inherit' />
         </div>
 
