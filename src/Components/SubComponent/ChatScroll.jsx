@@ -3,7 +3,7 @@ import React from 'react'
 function Message(props) {
  return (props.me?(     //ternary operation for true and false (props.me?(true):(false))
   <div className='justify-end flex w-full pr-14 '>
-    <div className=' bg-green-300 text-black px-2 py-1 rounded-md '>
+    <div className=' bg-slate-800 text-black px-2 py-1 rounded-md '>
     {""}
     <p>{props.text}</p>
     </div>

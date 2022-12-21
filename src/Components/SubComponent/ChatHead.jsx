@@ -9,7 +9,7 @@ function ChatHead(props) {
           <div className='flex justify-between p-2 px-4 items-center
        bg-slate-700 '>
         <div className='flex items-center space-x-3'>
-        <img className='rounded-full h-[37px] w-[37px]' alt='' src={props.p2?.img} />
+        <img className='rounded-full h-10 w-10' alt='' src={props.p2?.img} />
         <div>
             <p className='text-gray-300 font-semibold text-lg '>{props.p2?.name}</p>
             <p className='text-gray-300 font-semibold text-xs leading-3'>Online</p>

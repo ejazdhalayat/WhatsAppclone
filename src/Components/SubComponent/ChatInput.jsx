@@ -1,7 +1,8 @@
 import React from 'react'
-import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
+// import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import { useState } from 'react';
+import TagFacesIcon from '@mui/icons-material/TagFaces';
 import MicIcon from '@mui/icons-material/Mic';
 
 
@@ -21,11 +22,22 @@ function ChatInput() {
   }
 
   return (
-    <div className='flex space-x-2 text-xl mt-3 ml-3 mr-3'>
-    <InsertEmoticonIcon fontSize='inherit'/>
-    <AttachFileIcon fontSize='inherit' className='rotate-45'/>
-    <input placeholder='Search or start a new chat' className='w-full bg-transparent text-base'></input>
-    <MicIcon fontSize='inherit'/>
+    <div className="flex items-center text-gray-200 py-2 px-4 space-x-2  bg-slate-700">
+      <div className=" flex space-x-3 ">
+        <TagFacesIcon /> <AttachFileIcon className="rotate-45" />
+      </div>
+      <input
+        name="myMessage"
+        value={text.myMessage}
+        onChange={handleChange}
+        placeholder="Type a Message"
+        className="bg-slate-600 px-4 py-1 text-sm  rounded-md   w-full"
+      />
+     
+
+      <div className="pr-2">
+        <MicIcon className="mt-3 " />
+      </div>
     </div>
   )
 }
