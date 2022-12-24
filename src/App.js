@@ -71,7 +71,7 @@ useEffect(()=>{
       const {displayName ,email ,photoUrl ,uid } = u;
     setUser({"displayname" : displayName ,"email" :email ,"photoUrl" : photoUrl ,"uid" : uid});
     console.log(displayName ,email ,photoUrl ,uid)
-      setUser(u)
+      
     } else {
       setUser(null)
     }
