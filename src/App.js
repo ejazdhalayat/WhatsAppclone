@@ -24,6 +24,7 @@ function App() {
     if (!user) return; // if user is not present leave the scope
     checkNewLogin(); // if user is there then run this function
   },[user]); // re runs the useeffect everytime user value is changes
+  
 /////////////////////
 
 
