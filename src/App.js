@@ -18,12 +18,13 @@ function App() {
 
   const[user, setUser] = useState(null); // user variable which is the only variable to contain and check incase of any action (main user value is set here)
 
+////// sideEffect to create a data object for newly signed in users //////
 
   useEffect(()=>{
-    if (!user) return;
-    checkNewLogin();
-  },[user])
-
+    if (!user) return; // if user is not present leave the scope
+    checkNewLogin(); // if user is there then run this function
+  },[user]); // return the useeffect everytime user value is changes
+/////////////////////
 
 
 //CheckLogin
