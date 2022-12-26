@@ -12,9 +12,9 @@ import Loader from './Screens/Loader'
 function App() {
   const[user, setUser] = useState(null)
 
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
-  const db = getFirestore(app);
+  const auth = getAuth(app); // auth object ref
+  const provider = new GoogleAuthProvider(); //provider or thirdparty to perform
+  const db = getFirestore(app); // reference to our db in project
 
 
   useEffect(()=>{
