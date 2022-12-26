@@ -10,11 +10,13 @@ import Loader from './Screens/Loader'
 
 
 function App() {
-  const[user, setUser] = useState(null)
+ 
 
   const auth = getAuth(app); // auth object ref
   const provider = new GoogleAuthProvider(); //provider or thirdparty to perform
   const db = getFirestore(app); // reference to our db in project
+
+  const[user, setUser] = useState(null); // user variable which is the only variable to contain and check incase of any action (main user value is set here)
 
 
   useEffect(()=>{
