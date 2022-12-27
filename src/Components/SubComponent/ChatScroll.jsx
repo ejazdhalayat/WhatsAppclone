@@ -1,5 +1,6 @@
 import React from 'react'
 import { collection, onSnapshot } from "firebase/firestore";
+import { useState, useEffect } from 'react';
 
 function Message({data , me}) {
  return (<div>                                  //ternary operation for true and false 
@@ -11,7 +12,7 @@ function Message({data , me}) {
   </div>:<div className=' flex w-full pl-14 '>
   <img src={data.img} className="rounded-full h-8 w-8" />
     <div className=' bg-white text-black px-2 py-1 rounded-md '>
-   
+    <p className=' text-xs text-red-600'>{data.displayName}</p>
     <p>{data.myMessage}</p>
     </div>
   </div>}
@@ -20,59 +21,31 @@ function Message({data , me}) {
 }
 
 function ChatScroll({user, db, ...prop}) {
-  return (
-    <div className=''>
-       <Message text="Hi" me={true} />
-       <Message text="Hello" me={false} />
-       <Message text="Hi" me={true} />
-       <Message text="Hello" me={false} />
-       <Message text="Hi" me={true} />
-       <Message text="Hello" me={false} />
-       <Message text="Hello" me={true} />
-       <Message text="Hi" me={false} />
-       <Message text="Hello" me={true} />
-       <Message text="Hi" me={false} />
-       <Message text="Hello" me={true} />
-       <Message text="How are you?" me={false} />
-       <Message text="Hi" me={true} />
-       <Message text="Hello" me={false} />
-       <Message text="Hi" me={true} />
-       <Message text="Hello" me={false} />
-       <Message text="Hi" me={true} />
-       <Message text="Hello" me={false} />
-       <Message text="Hello" me={true} />
-       <Message text="Hi" me={false} />
-       <Message text="Hello" me={true} />
-       <Message text="Hi" me={false} />
-       <Message text="Hello" me={true} />
-       <Message text="How are you?" me={false} />
-       <Message text="Hi" me={true} />
-       <Message text="Hello" me={false} />
-       <Message text="Hi" me={true} />
-       <Message text="Hello" me={false} />
-       <Message text="Hi" me={true} />
-       <Message text="Hello" me={false} />
-       <Message text="Hello" me={true} />
-       <Message text="Hi" me={false} />
-       <Message text="Hello" me={true} />
-       <Message text="Hi" me={false} />
-       <Message text="Hello" me={true} />
-       <Message text="How are you?" me={false} />
-       <Message text="Hi" me={true} />
-       <Message text="Hello" me={false} />
-       <Message text="Hi" me={true} />
-       <Message text="Hello" me={false} />
-       <Message text="Hi" me={true} />
-       <Message text="Hello" me={false} />
-       <Message text="Hello" me={true} />
-       <Message text="Hi" me={false} />
-       <Message text="Hello" me={true} />
-       <Message text="Hi" me={false} />
-       <Message text="Hello" me={true} />
-       <Message text="9999999"  me={false} />
-       <div className='h-10'>
+    const [messages,setMessages] = useState([]);
 
-       </div>
+    useEffect(()=>{
+      onSnapshot(collection(db, "grpMSG"), (querySnapshot) => {
+      const tempMessageArr = [];
+      querySnapshot.forEach((doc) => {
+          tempMessageArr.push(doc.data());
+      });
+      setMessages(tempMessageArr);
+
+      });
+  },[db])
+
+
+  console.log(messages)
+
+  return (
+    <div className=' flex flex-col h-full '>
+        
+        <div className='w-full py-16 px-8 flex flex-col justify-end space-y-3 '>
+        <div className=' h-[45rem] xl:h-[50rem] ' />
+        {messages.map((message ,index) => <Message me={message.uid === user.uid} data={message} key={index}  />)}
+        {/* <Message text="Hello" me={true} /> */}
+         
+</div>
     </div>
   )
 }
