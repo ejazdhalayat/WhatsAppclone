@@ -13,7 +13,7 @@ function ContactCard({showImg ,showName, ...props }) { //we can give any paramet
                     <p className='text-white group-hover:font-bold group-hover:text-black text-base'>{showName}</p>
 
                     
-                    <p className='text-gray-400 group-hover:text-black text-sm'>{showMsg}</p>
+                    <p className='text-gray-400 group-hover:text-black text-sm'>Your message was deleted</p>
 
                 </div>
 
