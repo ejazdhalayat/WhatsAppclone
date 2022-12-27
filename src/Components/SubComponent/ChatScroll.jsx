@@ -1,24 +1,24 @@
 import React from 'react'
+import { collection, onSnapshot } from "firebase/firestore";
 
-function Message(props) {
- return (props.me?(     //ternary operation for true and false (props.me?(true):(false))
-  <div className='justify-end flex w-full pr-14 '>
-    <div className=' bg-slate-800 text-black px-2 py-1 rounded-md '>
-    {""}
-    <p>{props.text}</p>
+function Message({data , me}) {
+ return (<div>                                  //ternary operation for true and false 
+ {me ? <div className='justify-end flex w-full pr-14 '>
+    <div className='max-w-max rounded-br-none px-4 py-2 rounded-lg bg-slate-800 text-gray-200 '>
+    
+    <p>{data.myMessage}</p>
     </div>
-  </div>
- ):(
-  <div className=' flex w-full pl-14 '>
+  </div>:<div className=' flex w-full pl-14 '>
     <div className=' bg-white text-black px-2 py-1 rounded-md '>
-    {""}
-    <p>{props.text}</p>
+   
+    <p>{data.myMessage}</p>
     </div>
-  </div>
- )) 
+  </div>}
+  </div>)
+  
 }
 
-function ChatScroll() {
+function ChatScroll({user, db, ...prop}) {
   return (
     <div className=''>
        <Message text="Hi" me={true} />
