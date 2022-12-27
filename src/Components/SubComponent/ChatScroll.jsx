@@ -9,6 +9,7 @@ function Message({data , me}) {
     <p>{data.myMessage}</p>
     </div>
   </div>:<div className=' flex w-full pl-14 '>
+  <img src={data.img} className="rounded-full h-8 w-8" />
     <div className=' bg-white text-black px-2 py-1 rounded-md '>
    
     <p>{data.myMessage}</p>
