@@ -3,7 +3,7 @@ import ChatHead from './SubComponent/ChatHead'
 import ChatInput from './SubComponent/ChatInput'
 import ChatScroll from './SubComponent/ChatScroll'
 
-function ChatScreen(props) {
+function ChatScreen({db, user, ...props}) {
   return (
     <div className='bg-blue-600 relative col-span-4 h-screen'>
         <div className='bg-gray-300 w-full absolute z-10 top-0'>
@@ -13,7 +13,7 @@ function ChatScreen(props) {
           <ChatScroll />
           </div>
         <div className='bg-white w-full  absolute bottom-0'>
-          <ChatInput />
+          <ChatInput db={db} user={user} />
           </div>
 
       </div>

@@ -11,7 +11,7 @@ function ChatInput({db,user ,...props}) {
   //console.log(props.msgSetter)
 
   const schema = {
-    uid : 'user?.uid' ,
+    uid : user?.uid ,
     img:user?.photoURL ,
     displayName : user?.displayName
   }
@@ -27,16 +27,7 @@ function ChatInput({db,user ,...props}) {
 
   function handleChange(event){
     const {name ,value} =  event.target ;
-    // setMessage(function(cm){
-    //   return ({
-    //     ...cm , [name] : value
-    //   })
-
-    // })
     setMessage(cm =>({...cm , [name] : value}))
-
-
-    // setMessage(prev => ({...prev,[name]:value}))
     
 
   }
