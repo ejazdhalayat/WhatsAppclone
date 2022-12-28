@@ -19,7 +19,7 @@ function Homescreen({user, db, logout}) {
          {/* Message Box */}
             {/* <ChatScreen p1={active} />  */}
             {/* Boolean operation true & true is always true  , true & false is always false */}
-        {active?<ChatScreen db={db} p1={active} /> :  <div className=' flex justify-center items-center col-span-4 w-full'>
+        {active?<ChatScreen db={db} p1={active} user={user} /> :  <div className=' flex justify-center items-center col-span-4 w-full'>
             {/* <p className=' font-black text-7xl text-gray-400'>welcome</p> */}
             <img className='h-screen' src='https://www.snowpack.dev/img/guides/react/react.gif' />
           </div>}
