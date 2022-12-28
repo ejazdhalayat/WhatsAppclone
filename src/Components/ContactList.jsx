@@ -37,7 +37,7 @@ function ContactList({user,logout,db, ...props}) {
    temparr.push(item.data())
   });
   setContactArray(temparr)
-  }
+}
 
 // console.log(user)
 

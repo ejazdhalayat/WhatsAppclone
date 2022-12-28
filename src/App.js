@@ -33,7 +33,7 @@ const docRef = doc(db, "users", user?.uid);
 const docSnap = await getDoc(docRef);
 
 if (docSnap.exists()) {
-  await setDoc(doc(db, "users", user?.uid));
+  await setDoc(doc(db, "users", user?.uid), user);
   // console.log("Document data:", docSnap.data());
 } 
 }
@@ -51,7 +51,7 @@ async function Signin() {
     console.log(displayName ,email ,photoUrl ,uid);
    }).catch((error) => {
     console.log(error)
-    setUser(null) 
+    
   });
 }
 
@@ -59,17 +59,14 @@ async function Signin() {
 
 
 
-useEffect(()=>{
-  onAuthStateChanged(auth, (u) => {
-    if (u) {
-      const {displayName ,email ,photoUrl ,uid } = u;
-    setUser({"displayname" : displayName ,"email" :email ,"photoUrl" : photoUrl ,"uid" : uid});
-     } else {
-      setUser(null)
-    }
-  });
-
-},[user])
+useEffect(onAuthStateChanged(auth, (u) => {
+  if (u) {
+    const {displayName,email,photoURL,uid} = u
+    setUser({"displayName":displayName,"email":email,"photoURL":photoURL,"uid":uid});
+  } else {
+    setUser(null)
+  }
+}),[])
 
 //Logout
 async function Signout() {
