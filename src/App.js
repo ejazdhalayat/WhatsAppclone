@@ -70,10 +70,7 @@ useEffect(onAuthStateChanged(auth, (u) => {
 
 //Logout
 async function Signout() {
-  await signOut(auth)
-  .then(()=>{})
-
-  .catch(()=>{})
+  await signOut(auth).then((er)=>{console.log(er)}).catch((errr)=>{console.log(errr)})
 }
 //Loader
 
