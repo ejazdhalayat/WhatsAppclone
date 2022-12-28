@@ -24,8 +24,7 @@ function ContactList({user,logout,db, ...props}) {
   // {name : "Nikhat", img : "https://pps.whatsapp.net/v/t61.24694-24/180331887_856279525298753_2313013107755184080_n.jpg?ccb=11-4&oh=01_AdTkURxNGD_9H9AtsUFZyoLDbVgHUlq22r3FPYMShM9woQ&oe=6399F4B6" ,time : '10:00 am', msg : 'Okay'}]
 
   const [ContactArray ,setContactArray] = useState([]) ;
-
-  useEffect(()=>{
+    useEffect(()=>{
     if(!user) return ;
     getAllUsers();
   },[user])

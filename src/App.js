@@ -22,7 +22,7 @@ function App() {
   useEffect(()=>{
     if (!user) return; // if user is not present leave the scope
     checkNewLogin(); // if user is there then run this function
-  },[user]); // re runs the useeffect everytime user value is changes
+  },[user]) // re runs the useeffect everytime user value is changes
   
 /////////////////////
 
@@ -32,7 +32,7 @@ async function checkNewLogin(){
 const docRef = doc(db, "users", user?.uid);
 const docSnap = await getDoc(docRef);
 
-if (docSnap.exists()) {
+if (!docSnap.exists()) {
   await setDoc(doc(db, "users", user?.uid), user);
   // console.log("Document data:", docSnap.data());
 } 
