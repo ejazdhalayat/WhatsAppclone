@@ -31,14 +31,15 @@ function ContactList({user,logout,db, ...props}) {
   },[user])
 
   async function getAllUsers(){
-    const ref = collection(db, "users") ;
-    const querySnapshot = await getDocs(ref);
-    let temparr = [] ;
+    const querySnapshot = await getDocs(collection(db, "users"));
+    let temparr = [];
     querySnapshot.forEach((item) => {
-      temparr.push(item.data())
-    })
-    setContactArray(temparr)
-}
+   temparr.push(item.data())
+  });
+  setContactArray(temparr)
+  }
+
+// console.log(user)
 
 function XYZ(x){
 

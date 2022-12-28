@@ -15,9 +15,8 @@ function App() {
   const auth = getAuth(app); // auth object ref
   const provider = new GoogleAuthProvider(); //provider or thirdparty to perform
   const db = getFirestore(app); // reference to our db in project
-
-  const[user, setUser] = useState(null); // user variable which is the only variable to contain and check incase of any action (main user value is set here)
-
+  const[user, setUser] = useState(false); // user variable which is the only variable to contain and check incase of any action (main user value is set here)
+  const [load, setLoad] = useState(true)
 ////// sideEffect to create a data object for newly signed in users //////
 
   useEffect(()=>{
@@ -34,11 +33,9 @@ const docRef = doc(db, "users", user?.uid);
 const docSnap = await getDoc(docRef);
 
 if (docSnap.exists()) {
-  console.log("Document data:", docSnap.data());
-} else {
-  // doc.data() will be undefined in this case
-  console.log("No such document!");
-}
+  await setDoc(doc(db, "users", user?.uid));
+  // console.log("Document data:", docSnap.data());
+} 
 }
 
 
@@ -58,13 +55,7 @@ async function Signin() {
   });
 }
 
-//Logout
-async function Signout() {
-  await signOut(auth)
-  .then(()=>{})
 
-  .catch(()=>{})
-}
 
 
 
@@ -73,23 +64,27 @@ useEffect(()=>{
     if (u) {
       const {displayName ,email ,photoUrl ,uid } = u;
     setUser({"displayname" : displayName ,"email" :email ,"photoUrl" : photoUrl ,"uid" : uid});
-    console.log(displayName ,email ,photoUrl ,uid)
-      
-    } else {
+     } else {
       setUser(null)
     }
   });
 
 },[user])
 
+//Logout
+async function Signout() {
+  await signOut(auth)
+  .then(()=>{})
 
+  .catch(()=>{})
+}
 //Loader
-const [init ,setInit] = useState(true) ;
-setTimeout(function(){
-setInit(false)
+
+setTimeout(()=>{
+setLoad(false)
 }, 2000 )
 
-  if (init) return <Loader /> ;
+  if (load) return <Loader /> ;
 
 
 
