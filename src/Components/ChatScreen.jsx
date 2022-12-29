@@ -13,10 +13,10 @@ function ChatScreen({db, user, ...props}) {
           <ChatHead p2={props.p1} />
         </div>
         <div className="bg-[url('https://st2.depositphotos.com/1963019/9464/v/450/depositphotos_94649040-stock-illustration-vector-doodle-seamless-pattern-with.jpg')]  pt-16 h-full overflow-y-scroll">
-          <ChatScroll db={db} user={user}  />
+          <ChatScroll db={db} user={user} message={messageArray} />
           </div>
         <div className='bg-white w-full  absolute bottom-0'>
-          <ChatInput db={db} user={user}  />
+          <ChatInput db={db} user={user} msgSetter={setMessageArray} />
           </div>
 
       </div>

@@ -38,7 +38,7 @@ function ContactList({user,logout,db, ...props}) {
   setContactArray(temparr)
 }
 
-// console.log(user)
+//  console.log(db)
 
 function XYZ(x){
 

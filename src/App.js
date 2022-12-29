@@ -86,7 +86,7 @@ setLoad(false)
   // const[btn, setBtn] = useState(null)
   return (
     <div className="h-screen w-screen " >
-      {user ? <Homescreen user={user} logout={Signout} /> : <Login login={Signin}/>}
+      {user ? <Homescreen user={user} db={db} logout={Signout} /> : <Login login={Signin}/>}
     </div>
   );
 }

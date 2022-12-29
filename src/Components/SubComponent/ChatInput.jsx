@@ -11,6 +11,7 @@ function ChatInput({db,user ,...props}) {
   //console.log(props.msgSetter)
 
   const schema = {
+    myMessage : "",
     uid : user?.uid ,
     img:user?.photoURL ,
     displayName : user?.displayName

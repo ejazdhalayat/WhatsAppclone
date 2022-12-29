@@ -3,7 +3,7 @@ import { collection, onSnapshot } from "firebase/firestore";
 import { useState, useEffect } from 'react';
 
 function Message({data , me}) {
- return (<div>                                  //ternary operation for true and false 
+ return (<div>                                 
  {me ? <div className='justify-end flex w-full pr-14 '>
     <div className='max-w-max rounded-br-none px-4 py-2 rounded-lg bg-slate-800 text-gray-200 '>
     
@@ -15,6 +15,10 @@ function Message({data , me}) {
     <p className=' text-xs text-red-600'>{data.displayName}</p>
     <p>{data.myMessage}</p>
     </div>
+    {/* <div className=' max-h-max max-w-max px-4 py-2 rounded-bl-none rounded-lg bg-gray-200 text-gray-800'>
+      <p className=' text-xs text-red-600'>{data.displayName}</p>
+      <p>{data.myMessage}</p>
+      </div> */}
   </div>}
   </div>)
   
@@ -35,7 +39,7 @@ function ChatScroll({user, db, ...prop}) {
   },[db])
 
 
-  console.log(messages)
+  // console.log(messages)
 
   return (
     <div className=' flex flex-col h-full '>
