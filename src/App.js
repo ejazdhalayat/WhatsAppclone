@@ -15,7 +15,7 @@ function App() {
   const auth = getAuth(app); // auth object ref
   const provider = new GoogleAuthProvider(); //provider or thirdparty to perform
   const db = getFirestore(app); // reference to our db in project
-  const[user, setUser] = useState(false); // user variable which is the only variable to contain and check incase of any action (main user value is set here)
+  const [user, setUser] = useState(false); // user variable which is the only variable to contain and check incase of any action (main user value is set here)
   const [load, setLoad] = useState(true)
 ////// sideEffect to create a data object for newly signed in users //////
 
